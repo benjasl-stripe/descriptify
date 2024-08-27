@@ -5,11 +5,6 @@ A stripe app to generate SEO-friendly product descriptions.
 ![screenshot](./resources/mov1.gif)
 
 Descriptify Uses OpenAI to generate clear and engaging product descriptions that are optimized for search engines. By automatically crafting these descriptions, it saves you time and effort while enhancing the visibility of your listings. With Descriptify, you can easily showcase your products in a way that attracts more customers and drives sales.
-
-Sure! Here’s a revised version of your content:
-
-Sure! Here's how you can incorporate markdown for images into your feature description:
-
 ---
 
 ### Key Features
