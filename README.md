@@ -1,4 +1,4 @@
-# descriptify
+# Descriptify
 A stripe app to generate SEO-friendly product descriptions.
 
 
