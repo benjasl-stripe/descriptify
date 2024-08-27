@@ -24,14 +24,3 @@ Descriptify Uses OpenAI to generate clear and engaging product descriptions that
 ![screenshot](./resources/2.png)
 
 ---
-
-
-
-
-
-
-- **Alt Text**: This text describes the image and is useful for accessibility purposes.
-
-You can adjust the descriptions and image URLs as needed. If you have specific images you plan to use, just substitute the placeholders. Let me know if there's anything else you'd like to add!
-
-Feel free to adjust any part of it further! Let me know if you need anything else.
