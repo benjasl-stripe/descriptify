@@ -1,0 +1,44 @@
+{
+  "id": "com.example.descriptify",
+  "version": "0.0.4",
+  "name": "Descriptify",
+  "icon": "./icon.png",
+  "permissions": [
+    {
+      "permission": "product_read",
+      "purpose": "Allows this  app to read details of a product"
+    },
+    {
+      "permission": "product_write",
+      "purpose": "Allows this  app to write details to a product"
+    },
+    {
+      "permission": "secret_write",
+      "purpose": "For storing secrets in Stripe"
+    }
+  ],
+  "ui_extension": {
+    "views": [
+      {
+        "viewport": "stripe.dashboard.drawer.default",
+        "component": "Home"
+      },
+      {
+        "viewport": "stripe.dashboard.product.detail",
+        "component": "App"
+      },
+      {
+        "viewport": "settings",
+        "component": "Secrets"
+      }
+    ],
+    "content_security_policy": {
+      "connect-src": [
+        "https://api.openai.com/v1/chat/completions"
+      ],
+      "image-src": null,
+      "purpose": "Send data to Open AI."
+    }
+  },
+  "distribution_type": "public"
+}
