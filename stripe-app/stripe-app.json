@@ -1,6 +1,6 @@
 {
   "id": "com.example.descriptify",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "name": "Descriptify",
   "icon": "./icon.png",
   "permissions": [
