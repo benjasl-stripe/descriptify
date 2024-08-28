@@ -40,5 +40,8 @@
       "purpose": "Send data to Open AI."
     }
   },
+  "constants": {
+    "API_BASE": "https://api.openai.com"
+  },
   "distribution_type": "public"
 }

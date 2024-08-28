@@ -57,11 +57,11 @@ const getSecret = async (uid) => {
   }
 };
 
-const generateDesc = async (apiKey, productName, productFeatures) => {
+const generateDesc = async (apiKey, productName, productFeatures, environment) => {
   const prompt = `Generate product description optimized for SEO for a product named "${productName}" with the following features: ${productFeatures.join(", ")}.`;
 
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch(`${environment.constants.API_BASE}/v1/chat/completions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -79,11 +79,13 @@ const generateDesc = async (apiKey, productName, productFeatures) => {
     }
 
     const data = await response.json();
+    showToast("Description generated", {type: "success"})
     return data.choices[0].message.content.trim();
+    
   } catch (error) {
     console.error("Failed to generate product description:", error);
-    showToast("Failed to generate description", {type: "caution"})
-    return "Failed to generate description.";
+    showToast("Failed to generate desc", {type: "caution"})
+    return "";
   }
 };
 
@@ -91,6 +93,7 @@ const Product = ({ userContext, environment }: ExtensionContextValue) => {
   const [product, setProduct] = useState<Stripe.Product>();
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState('');
+
 
   const getProductData = useCallback(async (productId: string) => {
     const data = await stripeClient.products.retrieve(productId);
@@ -126,16 +129,16 @@ const Product = ({ userContext, environment }: ExtensionContextValue) => {
          const { dismiss } = await showToast("Generating description...", { type: "pending" });
 
          try {
-          const generatedDescription = await generateDesc(apiKey, product.name, features);
+          const generatedDescription = await generateDesc(apiKey, product.name, features, environment);
           setDescription(generatedDescription);
 
           // Show success toast
-          showToast("Description generated successfully!", { type: "success" });
+          //showToast("Description generated", { type: "success" });
         } catch (error) {
           console.error("Error:", error);
 
           // Show caution toast on error
-          showToast("Failed to generate description.", { type: "caution" });
+          //showToast("Failed to generate desc", { type: "caution" });
         } finally {
           // Dismiss the pending toast
           dismiss();
